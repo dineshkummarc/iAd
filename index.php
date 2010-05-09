@@ -123,6 +123,12 @@ if (strstr($browserAsString, " AppleWebKit/") && strstr($browserAsString, " Mobi
             font-size:12px;
             color:#313131;
         }
+
+        footer a,
+        footer a:focus,
+        footer a:hover {
+            color:#313131;
+        }
         
         img {
             border:none;
