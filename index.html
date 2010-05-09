@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+
+    <meta name="viewport" content="user-scalable=no, width=device-width; initial-scale=1.0; maximum-scale=1.0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <title>What could an iAd look like?</title>
+
+    <script src="javascripts/jquery.min.1.4.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascripts/functions.js" type="text/javascript" charset="utf-8"></script>
+    <script src="javascripts/application.js" type="text/javascript" charset="utf-8"></script>
+
+    <style type="text/css" media="screen">
+        @font-face {
+            font-family: 'Museo700';
+            src: url('fonts/museo700-regular-webfont.eot');
+            src: local('☺'), url('fonts/museo700-regular-webfont.woff') format('woff'), url('fonts/museo700-regular-webfont.ttf') format('truetype'), url('fonts/museo700-regular-webfont.svg#webfont') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'mueso-sans';
+            src: url('fonts/MuseoSans_500.otf');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        body {
+            background: #000 url('images/bg.jpg') no-repeat scroll top left;
+            color: #fff;
+            font-family: mueso-sans, 'helvetica neue', helvetica, arial, sans-serif;
+            margin:0;
+            padding:0;
+            font-size:17px;
+            line-height:1.5;
+            text-shadow: 0px 1px 2px #000;
+        }
+        
+        em {
+            background: rgba(0, 0, 0,1 );
+            font-style: normal;
+            padding: 0 2px;
+        }
+        
+        ul,
+        p {
+            margin: 0 0 1em 0;
+        }
+        
+        ul:last-child,
+        p:last-child {
+            margin: 0;
+        }
+        
+        a,
+        a:focus
+        a:hover {
+            color: #f07;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-shadow: 0px 0px 3px #f07;
+        }
+        
+        .columns {
+            width: 900px;
+            margin: 10px auto 10px auto;
+        }
+        
+        header {
+            display:block;
+        }
+        
+        h1 {
+            font-family: 'Museo700';
+            font-size:67px;
+            color:#fff;
+            line-height:1.0;
+            text-align:center;
+            text-shadow: 2px 2px 2px #000;
+        }
+
+        .clearfix {
+            overflow:hidden;
+            _zoom:1;
+        }
+        
+        .col-1 {
+            float: left;
+            width: 470px;
+        }
+        
+        .col-1 #iphone {
+            background: url('images/iphone-vertical.png') no-repeat scroll top left;
+            width: 463px;
+            height: 807px;
+        }
+        
+        .col-1 #iphone #iframe {
+            margin: 120px 0 0 70px;
+            border:2px solid #000;
+        }
+        
+        .col-2 {
+            position: relative;
+            float: right;
+            width: 350px;
+            background: rgba(0,0,0,0.2);
+            border-radius: 16px;
+            -moz-border-radius: 16px;
+            border-top: 1px solid rgba(0,0,0,0.2);
+            border-right: 1px solid rgba(128,128,128,0.2);
+            border-bottom: 1px solid rgba(128,128,128,0.2);
+            border-left: 1px solid rgba(0,0,0,0.05);
+            padding: 20px
+        }
+        
+        .col-2 p {
+        }
+        
+        .col-2 ul {
+            list-style-type:square;
+        }
+        
+        ul#socialmedia {
+            list-style-type:none;
+            padding:0;
+        }
+        
+        ul#socialmedia li {
+            float:left;
+            margin-left:0px;
+            padding:0;
+        }
+        
+        #source {
+            float: right;
+            text-align: right;
+            color: #333;
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+        
+        footer {
+            display:block;
+            margin-top:70px;
+            font-size:14px;
+            color:#313131;
+        }
+        
+        img {
+            border:none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>What could an iAd look like?</h1>
+    </header>
+    <div class="columns">
+        <div class="clearfix">
+            <div class="col-1">
+                <div id="iphone">
+                    <iframe id="iframe" src="iad.html" width="320px" height="480px" border="0px"></iframe>
+                </div>
+            </div>
+            <div class="col-2">
+                <p>
+                    <a href="http://www.apple.com/iphone/preview-iphone-os/">iAds</a> are a rad new way to create digital advertisements for Apple's mobile devices.
+                </p>
+                
+                <p>
+                    Based on open <a href="http://apirocks.com/html5/html5.html">HTML5 technologies</a>,
+                    web developers will be able to easily create and distribute content for the mobile ad market.
+                </p>
+                
+                <p>
+                    But what is all the buzz about?
+                </p>
+                
+                <p>
+                    Apple's iPhone &amp; iPad do not support Flash,
+                    and that isn't going to change.
+                </p>
+                
+                <p>
+                    We don't see that as a problem.<br />
+                    <a href="http://9elements.com/io/?p=153">As we have already shown</a>, HTML5 holds some amazing possibilities.
+                </p>
+                
+                <p>
+                    So, if you need cutting edge HTML5 tech<br />
+                    <a href="mailto:contact@9elements.com">→ tell us what you have in mind</a>
+                    and we'll figure someting cool for you.
+                </p>
+                
+                <p id="source">
+                    ♥ No Flash → View Source ♥<br />
+                    Forking Pleasure on <a href="http://github.com/9elements/theiad">GitHub</a>
+                </p>
+                
+                <ul id="socialmedia" class="clearfix">
+                    <li id="rss">
+                        <a href="http://9elements.com/io" title="subscribe to our RSS feed">
+                            <img src="images/icons/rss.png" alt="subscribe to our RSS feed"/>
+                        </a>
+                    </li>
+                    <li id="facebook">
+                        <a href="http://facebook.com/9elements" title="become a fan on facebook">
+                            <img src="images/icons/facebook.png" alt="become a fan on facebook" />
+                        </a>
+                    </li>
+                    <li id="twitter">
+                        <a href="http://twitter.com/9elements" title="follow us on twitter">
+                            <img src="images/icons/twitter.png" alt="follow us on twitter" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <footer>
+            "What could an iAd look like?" is a 9elements production &copy; 2010. Header font by <a href="http://www.exljbris.nl">Jos Buivenga</a>.
+        </footer>
+    </div>
+</body>
+</html>
