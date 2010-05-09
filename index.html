@@ -121,14 +121,15 @@
             padding: 20px
         }
         
-        .col-2 p {
+        #features {
+            list-style-position: outside;
+            list-style-type: none;
+            margin-left: 0;
+            padding-left: 0;
         }
         
-        .col-2 ul {
-/*            list-style-type: disc;*/
-            list-style-position: inside;
-            margin-left: 0;
-            padding-left: 1em;
+        .col-2 #features li:before {
+           content: "★ ";
         }
         
         ul#socialmedia {
@@ -175,15 +176,13 @@
             </div>
             <div class="col-2">
                 <p>
-                    <a href="http://www.apple.com/iphone/preview-iphone-os/">iAds</a> are a rad new way to create digital advertisements for Apple's mobile devices.
+                    <a href="http://www.apple.com/iphone/preview-iphone-os/">iAds</a> are a great new way to create digital advertisements for Apple's mobile devices.
+                    Soon, there are going to be more than 100 million iPads, iPhones and iPods combined.
                 </p>
                 
                 <p>
-                    Based on open <a href="http://apirocks.com/html5/html5.html">HTML5 technologies</a>,
-                    developers will be able to easily create and distribute content for the mobile ad market.
-                </p>
-                
-                <p>
+                    Based on open <a href="http://apirocks.com/html5/html5.html">HTML5 technologies</a> (way to go, Apple),
+                    developers will be able to easily create and distribute content for Apple devices.
                     But what is all the buzz about?
                 </p>
                 
@@ -200,14 +199,16 @@
                 <p>
                     For us, it isn't about doing what we did with Flash already.
                     We are keen to fulfill the promise of better ads with better tools.
-                    Here's a small portion of what a full fledged iAd let's you do:
+                    Forget those annoying Flash banners.
+                    Save the monkey from the hammer.
+                    Here's why iAds are way ahead of the competition:
                 </p>
                 
-                <ul>
-                    <li>Watch related trailers &amp; videos</li>
-                    <li>Buy goods directly from inside the ad</li>
-                    <li>Customized interactive navigation</li>
-                    <li>Clicking an ad won't quit the running app</li>
+                <ul id="features">
+                    <li>iAds are like mobile microsites</li>
+                    <li>Stream related trailers &amp; videos</li>
+                    <li>Buy goods. Inside the ad.</li>
+                    <li>Clicking on ads will keep the app running</li>
                 </ul>
                 
                 <p>
