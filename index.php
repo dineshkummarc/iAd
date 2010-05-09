@@ -165,7 +165,7 @@ if (strstr($browserAsString, " AppleWebKit/") && strstr($browserAsString, " Mobi
             </div>
         </div>
         <footer>
-            "What could an iAd look like?" is a 9elements production &copy; 2010
+            "What could an iAd look like?" is a 9elements production &copy; 2010. Header font by <a href="http://www.exljbris.nl">Jos Buivenga</a>.
         </footer>
     </div>
 </body>
