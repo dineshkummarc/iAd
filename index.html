@@ -163,6 +163,15 @@
         }
     </style>
 </head>
+<script>
+    jQuery(function ($) {
+        $('#load-contact').click(function (e) {
+            e.preventDefault();
+            
+            $('#iframe').attr('src', 'contact.html');
+        });
+    });
+</script>
 <body>
     <header>
         <h1>What could an iAd look like?</h1>
@@ -181,7 +190,7 @@
                 </p>
                 
                 <p>
-                    Based on open <a href="http://apirocks.com/html5/html5.html">HTML5 technologies</a> (way to go, Apple),
+                    Based on open <a href="http://apirocks.com/html5/html5.html">HTML5 technologies</a> (yay!),
                     developers will be able to easily create and distribute content for Apple devices.
                     But what is all the buzz about?
                 </p>
@@ -205,15 +214,15 @@
                 </p>
                 
                 <ul id="features">
-                    <li>iAds are like mobile microsites</li>
-                    <li>Stream related trailers &amp; videos</li>
-                    <li>Buy goods. Inside the ad.</li>
-                    <li>Clicking on ads will keep the app running</li>
+                    <li>iAds are powerful mobile microsites</li>
+                    <li>Stream related videos, trailers &amp; more</li>
+                    <li>Buy goods. From inside the ad!</li>
+                    <li>Clicking an ad won't quit the app</li>
                 </ul>
                 
                 <p>
                     So, if you're interested and like our ideas<br />
-                    <a href="mailto:contact@9elements.com">→ Tell us what you have in mind</a>
+                    <a href="mailto:contact@9elements.com" id="load-contact">→ Tell us what you have in mind</a>
                     and we'll figure someting cool for you.
                 </p>
                 

@@ -7,8 +7,8 @@ var Config = {
 
 jQuery(function ($) {
     var slides = [];
-	var rects = [];
-	var x = 0, y = 0, i = 0;
+    var rects = [];
+    var x = 0, y = 0, i = 0;
 
     var Scene = {     
         ended : false,   
