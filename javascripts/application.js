@@ -43,7 +43,7 @@ jQuery(function ($) {
                             'is-moving' : '0'
                         });
                         rect.click(function() {
-                            $('#close').fadeIn();
+                            $('#close').fadeIn('slow');
                             
                             var target = $(this);
                             var slide = target.data('slide');
