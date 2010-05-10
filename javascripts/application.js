@@ -43,6 +43,8 @@ jQuery(function ($) {
                             'is-moving' : '0'
                         });
                         rect.click(function() {
+                            $('#close').fadeIn();
+                            
                             var target = $(this);
                             var slide = target.data('slide');
                             var x     = target.data('x');
@@ -109,5 +111,9 @@ jQuery(function ($) {
         }
     };
     
-    Scene.initialize();    
+    Scene.initialize();
+    
+    $('#close').click(function () {
+        location.href = "iad.html";
+    });
 });
