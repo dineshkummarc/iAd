@@ -81,7 +81,7 @@ jQuery(function ($) {
                     if(RegExp(" AppleWebKit/").test(navigator.userAgent)) {
                         rect.css({
                            '-webkit-transform'  : 'rotateY(270deg)',
-                           '-webkit-transition' : '-webkit-transform 0.5s ease-in'
+                           '-webkit-transition' : '-webkit-transform 0.2s ease-in'
                         });
                     } else {
                         rect.fadeOut();
@@ -89,16 +89,16 @@ jQuery(function ($) {
             
                     window.setTimeout(function() {
                         Scene.rotateRect(slide, x - 1  , y    );
-                    }, 250);
+                    }, 100);
                     window.setTimeout(function() {
                         Scene.rotateRect(slide, x + 1  , y    );
-                    }, 325);
+                    }, 120);
                     window.setTimeout(function() {
                         Scene.rotateRect(slide, x      , y - 1);
-                    }, 375);
+                    }, 140);
                     window.setTimeout(function() {
                         Scene.rotateRect(slide, x      , y + 1);
-                    }, 450);
+                    }, 200);
                 }
             }
         },
