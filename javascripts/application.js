@@ -12,7 +12,7 @@ jQuery(function ($) {
 
     var Scene = {     
         ended : false,
-        is_webkit: null,
+        transform: null,
         initialize : function() {
             if (RegExp(" AppleWebKit/").test(navigator.userAgent)) {
                 Scene.transform = function (rect, opts) {
@@ -25,8 +25,11 @@ jQuery(function ($) {
                     })
                 };
             } else {
-                Scene.transform = function (rect) {
-                    // fade out rect after distance * factor time
+                Scene.transform = function (rect, opts) {
+                    var delay = ((0.3 + Math.random()/16) * opts.distance) * 1000,
+                        func  = (opts.slide % 2) ? 'fadeOut' : 'slideUp';
+                    
+                    rect.delay(delay)[func]();
                 };
             }
             
