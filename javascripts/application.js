@@ -72,6 +72,37 @@ jQuery(function ($) {
             } /* foreach slide */
         }, /* initialize */
         
+        animators : [
+            function animatorBlockOut(rect) {
+                rect.css({
+                   '-webkit-transform'  : 'translate(0, 640px)',
+                   '-webkit-transition' : '-webkit-transform 0.5s ease-in'
+                });
+            },
+            function explode(rect) {
+                var r = Math.random() * 2 * Math.PI;
+                var tx = Math.floor(Math.cos(r) * 640);
+                var ty = Math.floor(Math.sin(r) * 640);
+                
+                rect.css({
+                   '-webkit-transform'  : 'translate(' + tx + 'px, ' + ty + 'px)',
+                   '-webkit-transition' : '-webkit-transform 0.5s ease-in'
+                });
+            },
+            function animatorFlipX(rect) {
+                rect.css({
+                   '-webkit-transform'  : 'rotateX(270deg)',
+                   '-webkit-transition' : '-webkit-transform 0.5s ease-in'
+                });                
+            },
+            function animatorFlipY(rect) {
+                rect.css({
+                   '-webkit-transform'  : 'rotateY(270deg)',
+                   '-webkit-transition' : '-webkit-transform 0.5s ease-in'
+                });                
+            }
+        ],
+        
         rotateRect : function(slide, x, y) {
             if(slide >= 0 && x >= 0 && x < Config.numberOfHorizontalRects && y >= 0 && y < Config.numberOfVerticalRects) {
                 var rect = slides[slide].rects[x][y];
@@ -79,10 +110,7 @@ jQuery(function ($) {
                     rect.data('is-moving', '1');
                     
                     if(RegExp(" AppleWebKit/").test(navigator.userAgent)) {
-                        rect.css({
-                           '-webkit-transform'  : 'rotateY(270deg)',
-                           '-webkit-transition' : '-webkit-transform 0.5s ease-in'
-                        });
+                        Scene.animators[slide % Scene.animators.length](rect);
                     } else {
                         rect.fadeOut();
                     }
