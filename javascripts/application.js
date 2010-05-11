@@ -78,14 +78,14 @@ jQuery(function ($) {
                 if(rect.data('is-moving') == '0') {
                     rect.data('is-moving', '1');
                     
-                    if(RegExp(" AppleWebKit/").test(navigator.userAgent)) {
-                        rect.css({
-                           '-webkit-transform'  : 'rotateY(270deg)',
-                           '-webkit-transition' : '-webkit-transform 0.3s ease-in'
-                        });
-                    } else {
+                    // if(RegExp(" AppleWebKit/").test(navigator.userAgent)) {
+                    //     rect.css({
+                    //        '-webkit-transform'  : 'rotateY(270deg)',
+                    //        '-webkit-transition' : '-webkit-transform 0.3s ease-in'
+                    //     });
+                    // } else {
                         rect.fadeOut();
-                    }
+                    // }
             
                     window.setTimeout(function() {
                         Scene.rotateRect(slide, x - 1  , y    );
