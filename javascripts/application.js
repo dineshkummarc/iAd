@@ -15,14 +15,26 @@ jQuery(function ($) {
         is_webkit: null,
         initialize : function() {
             if (RegExp(" AppleWebKit/").test(navigator.userAgent)) {
-                Scene.is_webkit = true;
+                Scene.transform = function (rect, opts) {
+                    var delay = (0.3 + Math.random()/16) * opts.distance,
+                        attr  = (opts.slide % 2) ? 'rotateX' : 'rotateY';
+                    
+                    rect.css({
+                        '-webkit-transform'  : attr + '(270deg)',
+                        '-webkit-transition' : '-webkit-transform 0.5s ' + delay + 's ease-in'
+                    })
+                };
+            } else {
+                Scene.transform = function (rect) {
+                    // fade out rect after distance * factor time
+                };
             }
             
             for( i=0; i<Config.numberOfSlides; i++ ) {
                 // construct slide object
                 var slide = {
                     rects : [],
-                    html  : $('<div id="slide-' + i + '" class="slide-0"></div>')
+                    html  : $('<div class="slide" />')
                 };
                 
                 // add it to the slides
@@ -35,7 +47,7 @@ jQuery(function ($) {
                 for( var x=0; x<Config.numberOfHorizontalRects; x++ ) {
                     slide.rects[x] = [];
                     for(var y=0; y<Config.numberOfVerticalRects; y++ ) {
-                        var rect = $('<div id="rect-' + x + '-' + y + '" class="rect slide-' + i + '"></div>');
+                        var rect = $('<div />');
                         rect.css({
                             'left' : x*Config.rectSize + 'px',
                             'top'  : y*Config.rectSize + 'px',
@@ -54,8 +66,9 @@ jQuery(function ($) {
                             var slide = target.data('slide');
                             var x     = target.data('x');
                             var y     = target.data('y');
-         
+                            
                             Scene.rotateRect(slide, x, y);
+                            
                             return false;
                         });
                         
@@ -78,32 +91,14 @@ jQuery(function ($) {
         }, /* initialize */
         
         rotateRect : function(slide, x, y) {
-            if(slide >= 0 && x >= 0 && x < Config.numberOfHorizontalRects && y >= 0 && y < Config.numberOfVerticalRects) {
-                var rect = slides[slide].rects[x][y];
-                if(rect.data('is-moving') == '0') {
-                    rect.data('is-moving', '1');
-                    
-                    if(Scene.is_webkit) {
-                        rect.css({
-                           '-webkit-transform'  : 'rotateY(270deg)',
-                           '-webkit-transition' : '-webkit-transform 0.3s ease-in'
-                        });
-                    } else {
-                        rect.fadeOut();
-                    }
-            
-                    window.setTimeout(function() {
-                        Scene.rotateRect(slide, x - 1  , y    );
-                    }, 120);
-                    window.setTimeout(function() {
-                        Scene.rotateRect(slide, x + 1  , y    );
-                    }, 150);
-                    window.setTimeout(function() {
-                        Scene.rotateRect(slide, x      , y - 1);
-                    }, 200);
-                    window.setTimeout(function() {
-                        Scene.rotateRect(slide, x      , y + 1);
-                    }, 220);
+            for (var u = 0; u < Config.numberOfHorizontalRects; ++u) {
+                for (var v = 0; v < Config.numberOfVerticalRects; ++v) {
+                    Scene.transform(slides[slide].rects[u][v], {
+                        x: x,
+                        y: y,
+                        slide: slide,
+                        distance: Math.sqrt(Math.pow(Math.abs(x-u), 2) + Math.pow(Math.abs(y-v), 2))
+                    });
                 }
             }
         },
