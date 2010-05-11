@@ -11,8 +11,13 @@ jQuery(function ($) {
     var x = 0, y = 0, i = 0;
 
     var Scene = {     
-        ended : false,   
+        ended : false,
+        is_webkit: null,
         initialize : function() {
+            if (RegExp(" AppleWebKit/").test(navigator.userAgent)) {
+                Scene.is_webkit = true;
+            }
+            
             for( i=0; i<Config.numberOfSlides; i++ ) {
                 // construct slide object
                 var slide = {
@@ -78,14 +83,14 @@ jQuery(function ($) {
                 if(rect.data('is-moving') == '0') {
                     rect.data('is-moving', '1');
                     
-                    // if(RegExp(" AppleWebKit/").test(navigator.userAgent)) {
-                    //     rect.css({
-                    //        '-webkit-transform'  : 'rotateY(270deg)',
-                    //        '-webkit-transition' : '-webkit-transform 0.3s ease-in'
-                    //     });
-                    // } else {
+                    if(Scene.is_webkit) {
+                        rect.css({
+                           '-webkit-transform'  : 'rotateY(270deg)',
+                           '-webkit-transition' : '-webkit-transform 0.3s ease-in'
+                        });
+                    } else {
                         rect.fadeOut();
-                    // }
+                    }
             
                     window.setTimeout(function() {
                         Scene.rotateRect(slide, x - 1  , y    );
