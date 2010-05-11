@@ -106,7 +106,12 @@ jQuery(function ($) {
         theEnd : function() {
             if(Scene.ended == false) {
                 Scene.ended = true;
-                location.href = "http://m.facebook.com/9elements";
+                
+                if (typeof parent != 'undefined') {
+                    parent.location = "http://facebook.com/9elements";
+                } else {
+                    document.location = "http://m.facebook.com/9elements";
+                }
             }
         }
     };
