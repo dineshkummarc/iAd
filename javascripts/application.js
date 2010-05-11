@@ -106,7 +106,7 @@ jQuery(function ($) {
         theEnd : function() {
             if(Scene.ended == false) {
                 Scene.ended = true;
-                location.href = "http://facebook.com/9elements";
+                location.href = "http://m.facebook.com/9elements";
             }
         }
     };
