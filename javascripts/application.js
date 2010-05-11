@@ -98,7 +98,7 @@ jQuery(function ($) {
                     }, 200);
                     window.setTimeout(function() {
                         Scene.rotateRect(slide, x      , y + 1);
-                    }, 250);
+                    }, 220);
                 }
             }
         },
