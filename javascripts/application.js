@@ -13,16 +13,43 @@ jQuery(function ($) {
     var Scene = {     
         ended : false,
         transform: null,
+        rectAnimators : [
+            function flipY(rect, delay) {
+                rect.css({
+                    '-webkit-transform'  : 'rotateY(270deg)',
+                    '-webkit-transition' : '-webkit-transform 0.5s ' + delay + 's ease-in'
+                });
+            },
+            function flipX(rect, delay) {
+                rect.css({
+                    '-webkit-transform'  : 'rotateX(270deg)',
+                    '-webkit-transition' : '-webkit-transform 0.5s ' + delay + 's ease-in'
+                });
+            },
+            function fallDown(rect, delay) {
+                rect.css({
+                    '-webkit-transform'  : 'translate(0, 640px)',
+                    '-webkit-transition' : '-webkit-transform 0.5s ' + delay + 's ease-in'
+                });
+            },
+            function explode(rect, delay) {
+                var r = Math.random() * Math.PI * 2;
+                var tx = Math.floor(Math.cos(r) * 640);
+                var ty = Math.floor(Math.sin(r) * 640);
+                
+                rect.css({
+                    '-webkit-transform'  : 'translate(' + tx + 'px, ' + ty + 'px)',
+                    '-webkit-transition' : '-webkit-transform 0.5s ' + delay + 's ease-in'
+                });
+            }
+        ],
         initialize : function() {
             if (RegExp(" AppleWebKit/").test(navigator.userAgent)) {
                 Scene.transform = function (rect, opts) {
-                    var delay = (0.3 + Math.random()/16) * opts.distance,
-                        attr  = (opts.slide % 2) ? 'rotateX' : 'rotateY';
+                    var delay = (0.3 + Math.random()/16) * opts.distance;
                     
-                    rect.css({
-                        '-webkit-transform'  : attr + '(270deg)',
-                        '-webkit-transition' : '-webkit-transform 0.5s ' + delay + 's ease-in'
-                    })
+                    
+                    Scene.rectAnimators[opts.slide % Scene.rectAnimators.length](rect, delay);
                 };
             } else {
                 Scene.transform = function (rect, opts) {
